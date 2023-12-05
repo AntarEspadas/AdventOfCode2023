@@ -41,3 +41,11 @@ let isSetPossible bag (set: Map<String, int>) =
 let isRoundPossible bag round =
     round
     |> Seq.forall (isSetPossible bag)
+    
+let solve bag lines =
+        parseLines lines
+        |> Seq.map (isRoundPossible bag)
+        |> Seq.mapi (fun i x -> x, i)
+        |> Seq.filter fst
+        |> Seq.map (snd >> (+) 1)
+        |> Seq.sum
