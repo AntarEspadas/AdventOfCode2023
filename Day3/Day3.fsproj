@@ -7,6 +7,7 @@
 
     <ItemGroup>
         <Compile Include="Problem1.fs" />
+        <Compile Include="Problem2.fs" />
         <Content Include="Input.txt" />
     </ItemGroup>
 

@@ -71,11 +71,12 @@ let getNumbers row (str: string) =
 let getAllNumbers (lines: string array) =
     lines
     |> Seq.mapi getNumbers
-    |> Seq.collect id
+    |> Seq.toList
     
 let solve (lines: string array) =
     lines
     |> getAllNumbers
+    |> Seq.concat
     |> Seq.map (fun x -> x.value, hasAdjacentSymbol lines x)
     |> Seq.choose (fun (x, y) -> if y then Some(x) else None)
     |> Seq.sum
