@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Problem1.fs" />
+        <Compile Include="Problem2.fs" />
+        <Content Include="Input.txt" />
+    </ItemGroup>
+
+</Project>
