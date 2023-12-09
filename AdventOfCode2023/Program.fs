@@ -1,19 +1,57 @@
 ﻿
-open Day4.Problem2
+open Day5.Problem1
 
 open System.IO
 
-let lines = File.ReadAllLines "/home/antar/repos/AdventOfCode2023/Day4/Input.txt"
+let input = File.ReadAllText "/home/antar/repos/AdventOfCode2023/Day5/Input.txt"
 
-// let lines = [|
-//     "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53"
-//     "Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19"
-//     "Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1"
-//     "Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83"
-//     "Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36"
-//     "Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"
-// |]
+// let input = """
+// seeds: 79 14 55 13
+//
+// seed-to-soil map:
+// 50 98 2
+// 52 50 48
+//
+// soil-to-fertilizer map:
+// 0 15 37
+// 37 52 2
+// 39 0 15
+//
+// fertilizer-to-water map:
+// 49 53 8
+// 0 11 42
+// 42 0 7
+// 57 7 4
+//
+// water-to-light map:
+// 88 18 7
+// 18 25 70
+//
+// light-to-temperature map:
+// 45 77 23
+// 81 45 19
+// 68 64 13
+//
+// temperature-to-humidity map:
+// 0 69 1
+// 1 0 69
+//
+// humidity-to-location map:
+// 60 56 37
+// 56 93 4
+// """
 
-lines
-|> solve
-|> (fun x -> printfn $"%A{x}")
+// let almanac = parse input
+//
+// printfn $"%A{Seq.head almanac.mappings}"
+//
+// getTarget (79) (almanac.mappings |> Seq.head |> Seq.last)
+input
+|> parse
+|> (fun x -> x.seeds)
+|> Seq.pairwise
+|> Seq.indexed
+|> Seq.filter (fst >> (fun x -> x % 2) >> (=) 0)
+|> Seq.map (snd >> snd)
+// |> (fun x -> x.see)
+|> Seq.iter (fun x -> printfn $"%A{x}")
