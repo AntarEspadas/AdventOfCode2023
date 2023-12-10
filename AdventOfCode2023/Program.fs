@@ -1,19 +1,28 @@
 ﻿
-open Day7.Problem1
-open Day7.Problem2
+open Day8.Problem2
 
 open System.IO
 
-let lines = File.ReadLines "/home/antar/repos/AdventOfCode2023/Day7/Input.txt"
+let lines = File.ReadLines "/home/antar/repos/AdventOfCode2023/Day8/Input.txt"
 
 // let lines = [
-//     "32T3K 765"
-//     "T55J5 684"
-//     "KK677 28"
-//     "KTJJT 220"
-//     "QQQJA 483"
+//     "LR"
+//     ""
+//     "11A = (11B, XXX)"
+//     "11B = (XXX, 11Z)"
+//     "11Z = (11B, XXX)"
+//     "22A = (22B, XXX)"
+//     "22B = (22C, 22C)"
+//     "22C = (22Z, 22Z)"
+//     "22Z = (22B, 22B)"
+//     "XXX = (XXX, XXX)"
 // ]
 
 lines
-|> solve countCards equivalences
+|> solve
+// [
+//     ("11Z", 0)
+//     ("22Z", 0)
+// ]
+// |> isEnd
 |> (fun x -> printfn $"%A{x}")
