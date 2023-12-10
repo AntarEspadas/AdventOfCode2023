@@ -1,28 +1,17 @@
 ﻿
-open Day8.Problem2
+open Day9.Problem1
+open Day9.Problem2
 
 open System.IO
 
-let lines = File.ReadLines "/home/antar/repos/AdventOfCode2023/Day8/Input.txt"
+let lines = File.ReadLines "/home/antar/repos/AdventOfCode2023/Day9/Input.txt"
 
 // let lines = [
-//     "LR"
-//     ""
-//     "11A = (11B, XXX)"
-//     "11B = (XXX, 11Z)"
-//     "11Z = (11B, XXX)"
-//     "22A = (22B, XXX)"
-//     "22B = (22C, 22C)"
-//     "22C = (22Z, 22Z)"
-//     "22Z = (22B, 22B)"
-//     "XXX = (XXX, XXX)"
+//     "0 3 6 9 12 15"
+//     "1 3 6 10 15 21"
+//     "10 13 16 21 30 45"
 // ]
 
 lines
 |> solve
-// [
-//     ("11Z", 0)
-//     ("22Z", 0)
-// ]
-// |> isEnd
 |> (fun x -> printfn $"%A{x}")
